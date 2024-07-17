@@ -23,6 +23,9 @@ def train(epoch):
     model.train()
 
     for batch_idx, (data, target) in enumerate(train_loader):
+
+        data, target = data.to(device), target.to(device)
+
         optimize_fn.zero_grad()
 
         output = model(data)

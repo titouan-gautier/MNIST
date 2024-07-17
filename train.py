@@ -13,7 +13,7 @@ model = md.get_model()
 model.to(device)
 
 loss_fn = md.get_loss_fn()
-optimize_fn = md.get_optimizer_fn(model)
+optimize_fn = md.get_optimizer_fn(model, 0.001)
 
 train_set, _ = data.get_data()
 train_loader = data.get_trainloader(train_set)

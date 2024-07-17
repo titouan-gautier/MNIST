@@ -9,6 +9,8 @@ log_interval = 10
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
+print("Device is : ", device)
+
 model = md.get_model()
 model.to(device)
 

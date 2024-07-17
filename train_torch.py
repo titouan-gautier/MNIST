@@ -2,6 +2,7 @@ import torch
 from segmentation_models_pytorch.utils.train import TrainEpoch
 import model as md
 import prepare_data as data
+import time
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -27,7 +28,9 @@ train_epoch = TrainEpoch(
     verbose=True,
 )
 
-max_score = 0.9768456823027722
+max_score = 0.90
+
+start_time = time.time()
 
 model.train()
 
@@ -44,3 +47,4 @@ for i in range(n_epochs):
         torch.save(model.state_dict(), modelFileName)
         print('Model saved!')
 
+print('Totla time: ', time.time() - start_time)
